@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <!-- Portal Home: Háluc Points Summary -->
+        <template id="portal_my_home_haluc_points" name="Portal My Home: Háluc Points" inherit_id="portal.portal_my_home" priority="30">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-if="haluc_points_count">
+                    <div class="col-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Háluc Points</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    You have <t t-esc="haluc_point_balance"/> points.
+                                </p>
+                                <a href="/my/haluc_points" class="btn btn-primary">View History</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <t t-esc="haluc_points_count"/> confirmed transaction(s).
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+
+        <!-- Háluc Points List View Template -->
+        <template id="portal_my_haluc_points_list" name="My Háluc Points">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Háluc Points</t>
+                </t>
+
+                <div class="mt16">
+                    <h4>Your Current Balance: <span t-field="haluc_point_balance"/> points</h4>
+                </div>
+
+                <t t-if="not transactions">
+                    <div class="alert alert-warning mt16" role="alert">
+                        You do not have any Háluc Point transactions yet.
+                    </div>
+                </t>
+
+                <t t-if="transactions">
+                    <div class="table-responsive">
+                        <table class="table table-hover o_portal_my_doc_table mt16">
+                            <thead>
+                                <tr class="active">
+                                    <th>Description</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-end">Points</th>
+                                    <th class="text-center">Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="transactions" t-as="transaction">
+                                    <tr>
+                                        <td><span t-field="transaction.name"/></td>
+                                        <td class="text-center"><span t-field="transaction.date" t-options='{"widget': "date"}'/></td>
+                                        <td class="text-end"><span t-field="transaction.points"/></td>
+                                        <td class="text-center"><span t-field="transaction.category"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+
+                <div t-if="pager" class="o_portal_pager text-center">
+                    <t t-call="portal.pager"/>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

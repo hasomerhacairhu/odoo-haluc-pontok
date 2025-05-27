@@ -86,7 +86,7 @@ Adds a computed field `haluc_point_balance` to show the total points (sum of all
 - [x] Create access control entries in `ir.model.access.csv`
 
 ### 🌐 6. Portal View (optional)
-- [ ] Add frontend page for madrichim to view their points and transactions
+- [x] Add frontend page for madrichim to view their points and transactions
 
 ### 📦 7. Sample Data for Testing
 - [ ] Create demo XML data with 2 madrichim, 5 sample transactions
