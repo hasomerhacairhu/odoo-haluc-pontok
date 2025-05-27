@@ -48,14 +48,14 @@ Adds a computed field `haluc_point_balance` to show the total points (sum of all
 ## ✅ TODO LIST – STEP-BY-STEP
 
 ### 🔧 1. Base Module Setup
-- [ ] Create a new module named `haluc_points`
-- [ ] Initialize folder structure: `models`, `views`, `security`, `data`, `__manifest__.py`, `__init__.py`
+- [x] Create a new module named `haluc_points`
+- [x] Initialize folder structure: `models`, `views`, `security`, `data`, `__manifest__.py`, `__init__.py`
 
 ### 📊 2. Data Model – `haluc.point.transaction`
-- [ ] Define a new model `haluc.point.transaction`
-- [ ] Include all fields listed above with correct types and validations
-- [ ] Use default values where applicable (e.g., `date = fields.Date.today()`)
-- [ ] Add selection types (`add`, `spend`) and states (`draft`, `confirmed`)
+- [x] Define a new model `haluc.point.transaction`
+- [x] Include all fields listed above with correct types and validations
+- [x] Use default values where applicable (e.g., `date = fields.Date.today()`)
+- [x] Add selection states (`draft`, `confirmed`)
 
 ### 👥 3. Extend `res.partner`
 - [ ] Inherit `res.partner` model
@@ -167,9 +167,7 @@ haluc_points/
 | Mass Add Wizard             | Saves time, ensures consistency, increases adoption |
 
 ## Execution
-Prompt: Let's implement the haluc_points Odoo module as described in the haluc_points_ssd.md file. Please proceed with the following steps, and after each major step, wait for my confirmation before moving to the next. Register completed tasks in the markdown tasklist. Ensure that each step aligns with the specifications provided in the document, and notify me if any clarification is needed before proceeding.
-
-### Additional Notes:
+Prompt: Let's implement the haluc_points Odoo module as described in the haluc_points_ssd.md file. Please proceed with the following steps, and after each major step, wait for my confirmation before moving to the next. Register completed tasks in the markdown tasklist. Ensure that each step aligns with the specifications provided in the document, and notify me if any clarification is needed before proceeding. Additional Notes:
 - Use clear commit messages for each implemented feature.
 - Provide a brief summary of changes after completing each step.
 - Ensure proper testing and validation for each module component before marking tasks as complete.
