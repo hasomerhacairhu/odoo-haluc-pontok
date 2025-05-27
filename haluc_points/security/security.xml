@@ -1,0 +1,43 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Module Category for Háluc Points -->
+        <record id="module_category_haluc_points" model="ir.module.category">
+            <field name="name">Háluc Points</field>
+            <field name="description">User access levels for Háluc Points module</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Háluc Admin Group -->
+        <record id="group_haluc_admin" model="res.groups">
+            <field name="name">Háluc Points Administrator</field>
+            <field name="category_id" ref="module_category_haluc_points"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">The administrator can manage all Háluc Point transactions and settings.</field>
+        </record>
+
+        <!-- Háluc User Group -->
+        <record id="group_haluc_user" model="res.groups">
+            <field name="name">Háluc Points User</field>
+            <field name="category_id" ref="module_category_haluc_points"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">The user can view their own Háluc Point balance and transaction history.</field>
+        </record>
+
+        <!-- Record Rules -->
+        <!-- Rule for Háluc User to see only their own transactions -->
+        <record id="haluc_point_transaction_user_rule" model="ir.rule">
+            <field name="name">Háluc Point Transaction User Access</field>
+            <field name="model_id" ref="model_haluc_point_transaction"/>
+            <field name="groups" eval="[(4, ref('group_haluc_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+        </record>
+
+        <!-- Admin users have no specific record rule here, their full access is granted by ir.model.access.csv -->
+        <!-- Users not in group_haluc_admin or group_haluc_user will not have access due to ir.model.access.csv entries -->
+
+    </data>
+</odoo>

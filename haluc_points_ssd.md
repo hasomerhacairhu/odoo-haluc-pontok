@@ -78,12 +78,12 @@ Adds a computed field `haluc_point_balance` to show the total points (sum of all
 
 #### 4.3 Menu Items
 - [x] Menu: **Community > Háluc Points > Transactions** (Note: Currently "Háluc Points" is top-level. Visibility to be set in Step 5)
-- [ ] Visible only to `haluc_admin` group
+- [x] Visible only to `haluc_admin` group (Transaction submenu. Main menu visible to `haluc_user` and `haluc_admin`)
 
 ### 🔐 5. Access Control
-- [ ] Group: `haluc_admin` – full access
-- [ ] Group: `haluc_user` – read-only for own transactions
-- [ ] Create access control entries in `ir.model.access.csv`
+- [x] Group: `haluc_admin` – full access
+- [x] Group: `haluc_user` – read-only for own transactions
+- [x] Create access control entries in `ir.model.access.csv`
 
 ### 🌐 6. Portal View (optional)
 - [ ] Add frontend page for madrichim to view their points and transactions

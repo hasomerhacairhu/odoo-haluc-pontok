@@ -86,13 +86,15 @@
         <!-- Menu Items -->
         <menuitem id="menu_haluc_points_root"
                   name="Háluc Points"
-                  sequence="10"/>
+                  sequence="10"
+                  groups="haluc_points.group_haluc_user,haluc_points.group_haluc_admin"/>
         
         <menuitem id="menu_haluc_point_transaction"
                   name="Transactions"
                   parent="menu_haluc_points_root"
                   action="action_haluc_point_transaction"
-                  sequence="10"/>
+                  sequence="10"
+                  groups="haluc_points.group_haluc_admin"/>
         
         <!-- Main Community Menu (if it doesn't exist, create a placeholder or link to an existing one) -->
         <!-- Assuming a top-level menu "Community" might exist or needs to be created. -->

@@ -15,9 +15,9 @@
     'depends': ['base', 'mail'], # Added mail for potential future email notifications
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml', # Added security.xml
         'views/point_transaction_views.xml',
         'views/partner_views.xml',
-        # 'security/security.xml', # To be added in Step 5
         # 'data/demo_data.xml', # To be added in Step 7
     ],
     'installable': True,
