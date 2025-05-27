@@ -133,7 +133,7 @@ The initial development followed this plan:
 - [x] Add frontend page for madrichim to view their points and transactions
 
 ### 📦 7. Sample Data for Testing
-- [ ] Create demo XML data (pending)
+- [x] Create demo XML data (pending)
 
 ## 📄 License
 This project is licensed under the [MIT License](LICENSE).

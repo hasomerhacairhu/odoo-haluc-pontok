@@ -14,6 +14,7 @@ class HalucPointTransaction(models.Model):
         ('draft', 'Draft'),
         ('confirmed', 'Confirmed'),
     ], string='Status', default='draft', required=True)
+    notify = fields.Boolean(string='Notify Madrich', default=False) # New field
 
     def action_confirm(self):
         for rec in self:

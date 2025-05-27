@@ -89,7 +89,7 @@ Adds a computed field `haluc_point_balance` to show the total points (sum of all
 - [x] Add frontend page for madrichim to view their points and transactions
 
 ### 📦 7. Sample Data for Testing
-- [ ] Create demo XML data with 2 madrichim, 5 sample transactions
+- [x] Create demo XML data with 2 madrichim, 5 sample transactions
 
 ## 📁 Suggested File Structure
 
@@ -114,7 +114,7 @@ haluc_points/
 ## 🔁 Extended Functionalities
 
 ### 📬 1. Automatic Email Alerts (via System Event)
-- [ ] Add `notify` boolean field to `haluc.point.transaction` model.
+- [x] Add `notify` boolean field to `haluc.point.transaction` model.
 - [ ] Create an automated action (or override `write` method of `haluc.point.transaction`) to detect confirmation of 'add' type transactions where `notify` is true.
 - [ ] Create an email template (`mail.template`) for the notification.
   - [ ] Template should include: points earned, category, note, and new partner point balance.

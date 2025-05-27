@@ -1,0 +1,67 @@
+<odoo>
+    <data noupdate="1"> <!-- noupdate="1" means this data is only loaded on module installation -->
+
+        <!-- Demo Madrichim (res.partner) -->
+        <record id="partner_madrich_yossi" model="res.partner">
+            <field name="name">Yossi Cohen</field>
+            <field name="email">yossi.cohen@example.com</field>
+            <!-- Add other relevant fields for a madrich if necessary -->
+        </record>
+
+        <record id="partner_madrich_dana" model="res.partner">
+            <field name="name">Dana Levi</field>
+            <field name="email">dana.levi@example.com</field>
+        </record>
+
+        <!-- Sample Háluc Point Transactions (haluc.point.transaction) -->
+        <record id="transaction_yossi_1" model="haluc.point.transaction">
+            <field name="name">Organized regional seminar</field>
+            <field name="partner_id" ref="partner_madrich_yossi"/>
+            <field name="date" eval="(DateTime.now() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+            <field name="points">100</field>
+            <field name="category">Seminar Organization</field>
+            <field name="notes">Led the planning committee for the spring seminar.</field>
+            <field name="state">confirmed</field>
+        </record>
+
+        <record id="transaction_yossi_2" model="haluc.point.transaction">
+            <field name="name">Equipment purchase for club</field>
+            <field name="partner_id" ref="partner_madrich_yossi"/>
+            <field name="date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+            <field name="points">-20</field>
+            <field name="category">Club Purchase</field>
+            <field name="notes">New board games for the local ken.</field>
+            <field name="state">confirmed</field>
+        </record>
+
+        <record id="transaction_dana_1" model="haluc.point.transaction">
+            <field name="name">School presentation</field>
+            <field name="partner_id" ref="partner_madrich_dana"/>
+            <field name="date" eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+            <field name="points">50</field>
+            <field name="category">School Visit</field>
+            <field name="notes">Presented about the movement at "Future Leaders High".</field>
+            <field name="state">confirmed</field>
+        </record>
+
+        <record id="transaction_dana_2" model="haluc.point.transaction">
+            <field name="name">Weekend activity leading</field>
+            <field name="partner_id" ref="partner_madrich_dana"/>
+            <field name="date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+            <field name="points">75</field>
+            <field name="category">Activity Leading</field>
+            <field name="state">confirmed</field>
+        </record>
+
+        <record id="transaction_yossi_draft" model="haluc.point.transaction">
+            <field name="name">Planned summer camp logistics</field>
+            <field name="partner_id" ref="partner_madrich_yossi"/>
+            <field name="date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+            <field name="points">120</field>
+            <field name="category">Camp Planning</field>
+            <field name="notes">Initial planning phase, pending approval.</field>
+            <field name="state">draft</field>
+        </record>
+
+    </data>
+</odoo>

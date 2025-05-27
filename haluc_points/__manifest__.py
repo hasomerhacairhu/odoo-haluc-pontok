@@ -19,7 +19,7 @@
         'views/point_transaction_views.xml',
         'views/partner_views.xml',
         'views/portal_templates.xml', # Added portal templates
-        # 'data/demo_data.xml', # To be added in Step 7
+        'data/demo_data.xml', # To be added in Step 7
     ],
     'installable': True,
     'application': True,
