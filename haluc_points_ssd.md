@@ -58,11 +58,11 @@ Adds a computed field `haluc_point_balance` to show the total points (sum of all
 - [x] Add selection states (`draft`, `confirmed`)
 
 ### 👥 3. Extend `res.partner`
-- [ ] Inherit `res.partner` model
-- [ ] Add a computed field `haluc_point_balance`
-- [ ] Compute method: sum of all confirmed transactions (`state = 'confirmed'`), where:
-  - [ ] Positive `points` values are added to the total.
-  - [ ] Negative `points` values are subtracted from the total.
+- [x] Inherit `res.partner` model
+- [x] Add a computed field `haluc_point_balance`
+- [x] Compute method: sum of all confirmed transactions (`state = 'confirmed'`), where:
+  - [x] Positive `points` values are added to the total.
+  - [x] Negative `points` values are subtracted from the total.
 
 ### 🧩 4. Views – DETAILED
 
