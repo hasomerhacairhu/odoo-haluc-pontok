@@ -19,6 +19,7 @@
         'views/point_transaction_views.xml',
         'views/partner_views.xml',
         'views/portal_templates.xml', # Added portal templates
+        'data/mail_template_data.xml', # Added email template
         'data/demo_data.xml', # To be added in Step 7
     ],
     'installable': True,
