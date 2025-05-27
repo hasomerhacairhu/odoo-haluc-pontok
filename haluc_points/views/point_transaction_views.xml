@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+        <!-- Tree/List View for haluc.point.transaction -->
+        <record id="view_haluc_point_transaction_tree" model="ir.ui.view">
+            <field name="name">haluc.point.transaction.tree</field>
+            <field name="model">haluc.point.transaction</field>
+            <field name="arch" type="xml">
+                <tree string="Háluc Point Transactions">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="points"/>
+                    <field name="category"/>
+                    <field name="date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for haluc.point.transaction -->
+        <record id="view_haluc_point_transaction_form" model="ir.ui.view">
+            <field name="name">haluc.point.transaction.form</field>
+            <field name="model">haluc.point.transaction</field>
+            <field name="arch" type="xml">
+                <form string="Háluc Point Transaction">
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" class="oe_highlight" attrs="{'invisible': [('state', '=', 'confirmed')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                    </header>
+                    <sheet>
+                        <group name="main_details">
+                            <group name="col1">
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="points"/>
+                            </group>
+                            <group name="col2">
+                                <field name="date"/>
+                                <field name="category"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Notes" name="notes">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View for haluc.point.transaction -->
+        <record id="view_haluc_point_transaction_search" model="ir.ui.view">
+            <field name="name">haluc.point.transaction.search</field>
+            <field name="model">haluc.point.transaction</field>
+            <field name="arch" type="xml">
+                <search string="Search Háluc Point Transactions">
+                    <field name="name" string="Description"/>
+                    <field name="partner_id"/>
+                    <field name="category"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Confirmed" name="confirmed" domain="[('state', '=', 'confirmed')]"/>
+                    <separator/>
+                    <filter string="Transaction Date" name="filter_date" date="date"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Madrich" name="group_by_partner" context="{'group_by': 'partner_id'}"/>
+                        <filter string="Category" name="group_by_category" context="{'group_by': 'category'}"/>
+                        <filter string="State" name="group_by_state" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action for haluc.point.transaction -->
+        <record id="action_haluc_point_transaction" model="ir.actions.act_window">
+            <field name="name">Háluc Point Transactions</field>
+            <field name="res_model">haluc.point.transaction</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_haluc_point_transaction_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Háluc Point transaction.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="menu_haluc_points_root"
+                  name="Háluc Points"
+                  sequence="10"/>
+        
+        <menuitem id="menu_haluc_point_transaction"
+                  name="Transactions"
+                  parent="menu_haluc_points_root"
+                  action="action_haluc_point_transaction"
+                  sequence="10"/>
+        
+        <!-- Main Community Menu (if it doesn't exist, create a placeholder or link to an existing one) -->
+        <!-- Assuming a top-level menu "Community" might exist or needs to be created. -->
+        <!-- For now, Háluc Points will be a top-level menu. -->
+        <!-- If 'Community' menu exists with a known xml_id, menu_haluc_points_root parent can be set to it. -->
+        <!-- Example: parent="some_community_xml_id.menu_community_root" -->
+
+    </data>
+</odoo>

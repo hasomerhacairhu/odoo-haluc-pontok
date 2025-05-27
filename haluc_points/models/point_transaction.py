@@ -14,3 +14,9 @@ class HalucPointTransaction(models.Model):
         ('draft', 'Draft'),
         ('confirmed', 'Confirmed'),
     ], string='Status', default='draft', required=True)
+
+    def action_confirm(self):
+        for rec in self:
+            if rec.state == 'draft':
+                rec.state = 'confirmed'
+        return True

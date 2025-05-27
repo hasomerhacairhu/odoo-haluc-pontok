@@ -67,17 +67,17 @@ Adds a computed field `haluc_point_balance` to show the total points (sum of all
 ### 🧩 4. Views – DETAILED
 
 #### 4.1 Transaction Views (`haluc.point.transaction`)
-- [ ] List view with columns: `name`, `partner_id`, `points`, `type`, `category`, `date`, `state`
-- [ ] Filters: by partner, type, date range
-- [ ] Group by: partner, category
-- [ ] Form view: all fields shown, optional Confirm button, two tabs ("Details", "Notes")
+- [x] List view with columns: `name`, `partner_id`, `points`, `category`, `date`, `state` (Note: `type` column omitted as field was removed)
+- [x] Filters: by partner, date range (Note: `type` filter omitted as field was removed)
+- [x] Group by: partner, category
+- [x] Form view: all fields shown, optional Confirm button, two tabs ("Details", "Notes")
 
 #### 4.2 Partner Views (`res.partner`)
-- [ ] Show `haluc_point_balance` on partner form
-- [ ] Add one2many list tab for all related point transactions ("Háluc Points History")
+- [x] Show `haluc_point_balance` on partner form
+- [x] Add one2many list tab for all related point transactions ("Háluc Points History")
 
 #### 4.3 Menu Items
-- [ ] Menu: **Community > Háluc Points > Transactions**
+- [x] Menu: **Community > Háluc Points > Transactions** (Note: Currently "Háluc Points" is top-level. Visibility to be set in Step 5)
 - [ ] Visible only to `haluc_admin` group
 
 ### 🔐 5. Access Control
