@@ -131,12 +131,12 @@ haluc_points/
 - [x] Create the view (e.g., using Odoo's dashboard or a custom view) to display this information.
 
 #### Madrich Portal Summary
-- [ ] Design the Madrich Portal Summary layout.
-- [ ] Implement data retrieval for "Current balance" (reuse existing).
-- [ ] Implement data retrieval for "Last 5 transactions".
+- [x] Design the Madrich Portal Summary layout.
+- [x] Implement data retrieval for "Current balance" (reuse existing).
+- [x] Implement data retrieval for "Last 5 transactions".
 - [ ] Implement data retrieval for "Upcoming point-earning events" (if applicable, may require new model/logic).
-- [ ] Implement "Motivational status tag" (define logic for tags).
-- [ ] Create the portal view to display this information.
+- [x] Implement "Motivational status tag" (define logic for tags).
+- [x] Create the portal view to display this information.
 
 ### 🧙 3. Mass Point Addition Wizard
 
