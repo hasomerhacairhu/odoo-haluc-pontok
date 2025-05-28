@@ -12,6 +12,8 @@
                             <div class="card-body">
                                 <p class="card-text">
                                     You have <t t-esc="haluc_point_balance"/> points.
+                                    <br/>
+                                    <small class="text-muted">Status: <t t-esc="haluc_motivational_status"/></small>
                                 </p>
                                 <a href="/my/haluc_points" class="btn btn-primary">View History</a>
                             </div>
@@ -32,10 +34,36 @@
                     <t t-set="title">Háluc Points</t>
                 </t>
 
-                <div class="mt16">
-                    <h4>Your Current Balance: <span t-field="haluc_point_balance"/> points</h4>
+                <div class="mt16 row">
+                    <div class="col-md-8">
+                        <h4>Your Current Balance: <span t-field="haluc_point_balance"/> points</h4>
+                        <p class="lead">Your Status: <span t-esc="haluc_motivational_status"/></p>
+                    </div>
                 </div>
 
+                <div class="mt16">
+                    <h5>Last 5 Transactions:</h5>
+                    <t t-if="last_5_transactions">
+                        <ul class="list-group mb-3">
+                            <t t-foreach="last_5_transactions" t-as="lt">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span t-field="lt.name"/>
+                                        <small class="d-block text-muted"><span t-field="lt.date" t-options='{"widget": "date"}'/> - <span t-field="lt.category"/></small>
+                                    </div>
+                                    <span t-attf-class="badge {{ lt.points &gt; 0 and 'bg-success' or 'bg-danger' }} rounded-pill">
+                                        <t t-esc="lt.points"/>
+                                    </span>
+                                </li>
+                            </t>
+                        </ul>
+                    </t>
+                    <t t-else="">
+                        <p>No recent transactions found.</p>
+                    </t>
+                </div>
+
+                <h5 class="mt-4">Full Transaction History:</h5>
                 <t t-if="not transactions">
                     <div class="alert alert-warning mt16" role="alert">
                         You do not have any Háluc Point transactions yet.
@@ -57,7 +85,7 @@
                                 <t t-foreach="transactions" t-as="transaction">
                                     <tr>
                                         <td><span t-field="transaction.name"/></td>
-                                        <td class="text-center"><span t-field="transaction.date" t-options='{"widget': "date"}'/></td>
+                                        <td class="text-center"><span t-field="transaction.date" t-options='{"widget": "date"}'/></td>
                                         <td class="text-end"><span t-field="transaction.points"/></td>
                                         <td class="text-center"><span t-field="transaction.category"/></td>
                                     </tr>
