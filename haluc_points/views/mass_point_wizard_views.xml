@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record id="haluc_point_mass_wizard_form_view" model="ir.ui.view">
+            <field name="name">haluc.point.mass.wizard.form</field>
+            <field name="model">haluc.point.mass.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Mass Add Háluc Points">
+                    <group>
+                        <field name="name" placeholder="e.g., Activity Participation Bonus"/>
+                        <field name="partner_ids" widget="many2many_tags" options="{'no_create_edit': True}" placeholder="Select Madrichim"/>
+                        <field name="points"/>
+                        <field name="category" placeholder="e.g., Training Completion"/>
+                        <field name="date"/>
+                        <field name="state"/>
+                        <field name="notify"/>
+                    </group>
+                    <group>
+                        <field name="notes" placeholder="Additional details about this mass transaction..."/>
+                    </group>
+                    <footer>
+                        <button name="action_add_points" string="Add Points" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_haluc_point_mass_wizard" model="ir.actions.act_window">
+            <field name="name">Mass Add Háluc Points</field>
+            <field name="res_model">haluc.point.mass.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="haluc_point_mass_wizard_form_view"/>
+        </record>
+
+        <!-- Menu item under Háluc Points > Transactions (or a more suitable place) -->
+        <menuitem id="menu_haluc_point_mass_wizard"
+                  name="Mass Add Points"
+                  action="action_haluc_point_mass_wizard"
+                  parent="haluc_points.menu_haluc_points_transactions_list"
+                  sequence="20"/>
+
+        <!-- Optional: Add to res.partner action menu if contextually relevant -->
+        <!--
+        <act_window id="action_res_partner_mass_add_points"
+            name="Mass Add Háluc Points"
+            res_model="haluc.point.mass.wizard"
+            binding_model="res.partner"
+            binding_views="list"
+            view_mode="form"
+            target="new"/>
+        -->
+    </data>
+</odoo>
