@@ -16,10 +16,13 @@
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml', # Added security.xml
+        'data/mail_template_data.xml',
+        'data/demo_data.xml',
         'views/point_transaction_views.xml',
         'views/partner_views.xml',
         'views/portal_templates.xml',
         'views/dashboard_views.xml',  # Added dashboard views
+        'views/mass_point_wizard_views.xml',  # Added mass point wizard views
     ],
     'assets': {
         'web.assets_backend': [
