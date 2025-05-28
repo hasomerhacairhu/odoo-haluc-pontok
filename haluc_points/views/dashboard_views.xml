@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <record id="haluc_dashboard_form_view" model="ir.ui.view">
+            <field name="name">haluc.dashboard.form</field>
+            <field name="model">haluc.dashboard</field>
+            <field name="arch" type="xml">
+                <form string="Háluc Points Admin Dashboard" create="false" edit="false" delete="false">
+                    <sheet>
+                        <h1><field name="name" readonly="1"/></h1>
+                        <group col="2">
+                            <group>
+                                <field name="total_earned_points" widget="statinfo" string="Total Points Earned"/>
+                            </group>
+                            <group>
+                                <field name="total_spent_points" widget="statinfo" string="Total Points Spent"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Overview">
+                                <group>
+                                    <group string="Top Contributors (Top 5 Earners)">
+                                        <field name="top_contributors_html" widget="html" nolabel="1"/>
+                                    </group>
+                                    <group string="Most Active Categories (Top 5 by Points Earned)">
+                                        <field name="most_active_categories_html" widget="html" nolabel="1"/>
+                                    </group>
+                                </group>
+                                <group string="Points Trends (Monthly Earned vs Spent)">
+                                    <field name="points_trends_monthly_chart_json" widget="haluc_chart_widget" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_haluc_admin_dashboard" model="ir.actions.act_window">
+            <field name="name">Admin Dashboard</field>
+            <field name="res_model">haluc.dashboard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="haluc_dashboard_form_view"/>
+            <field name="target">current</field>
+            <field name="context">{'search_default_id': 1}</field> <!-- Attempt to load the first record or create if not exists via model method -->
+            <field name="res_id" eval="False"/> <!-- Let the action method in the model handle res_id -->
+            <field name="usage">haluc_dashboard_usage</field> <!-- Custom usage for client action if needed -->
+        </record>
+
+        <!-- Menu item for the Admin Dashboard -->
+        <menuitem id="menu_haluc_admin_dashboard"
+                  name="Admin Dashboard"
+                  action="action_haluc_admin_dashboard_model_method"
+                  parent="haluc_points.menu_haluc_points_root"
+                  sequence="1"/>
+
+        <!-- Action that calls the model method -->
+        <record id="action_haluc_admin_dashboard_model_method" model="ir.actions.server">
+            <field name="name">Open Admin Dashboard</field>
+            <field name="model_id" ref="model_haluc_dashboard"/>
+            <field name="state">code</field>
+            <field name="code">
+action = model.action_open_admin_dashboard()
+            </field>
+        </record>
+
+    </data>
+</odoo>

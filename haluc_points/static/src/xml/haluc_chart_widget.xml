@@ -1,0 +1,7 @@
+<templates>
+    <t t-name="haluc_points.HalucChartWidget" owl="1">
+        <div class="o_field_haluc_chart_widget" style="position: relative; height:40vh; width:80vw">
+            <canvas t-ref="canvas"/>
+        </div>
+    </t>
+</templates>

@@ -18,10 +18,16 @@
         'security/security.xml', # Added security.xml
         'views/point_transaction_views.xml',
         'views/partner_views.xml',
-        'views/portal_templates.xml', # Added portal templates
-        'data/mail_template_data.xml', # Added email template
-        'data/demo_data.xml', # To be added in Step 7
+        'views/portal_templates.xml',
+        'views/dashboard_views.xml',  # Added dashboard views
     ],
+    'assets': {
+        'web.assets_backend': [
+            'haluc_points/static/src/js/haluc_chart_widget.js',
+            'haluc_points/static/src/xml/haluc_chart_widget.xml',
+            'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js', # Added Chart.js
+        ],
+    },
     'installable': True,
     'application': True,
     'auto_install': False,

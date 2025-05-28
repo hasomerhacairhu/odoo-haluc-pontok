@@ -115,20 +115,20 @@ haluc_points/
 
 ### 📬 1. Automatic Email Alerts (via System Event)
 - [x] Add `notify` boolean field to `haluc.point.transaction` model.
-- [ ] Create an automated action (or override `write` method of `haluc.point.transaction`) to detect confirmation of 'add' type transactions where `notify` is true.
-- [ ] Create an email template (`mail.template`) for the notification.
-  - [ ] Template should include: points earned, category, note, and new partner point balance.
-- [ ] Implement logic to send the email to the partner associated with the transaction.
+- [x] Create an automated action (or override `write` method of `haluc.point.transaction`) to detect confirmation of 'add' type transactions where `notify` is true.
+- [x] Create an email template (`mail.template`) for the notification.
+  - [x] Template should include: points earned, category, note, and new partner point balance.
+- [x] Implement logic to send the email to the partner associated with the transaction.
 
 ### 📊 2. User Dashboards & Statistics
 
 #### Admin Dashboard
-- [ ] Design the Admin Dashboard layout.
-- [ ] Implement data retrieval for "Top contributors".
-- [ ] Implement data retrieval for "Points trends (monthly)".
-- [ ] Implement data retrieval for "Total earned vs spent".
-- [ ] Implement data retrieval for "Most active categories".
-- [ ] Create the view (e.g., using Odoo's dashboard or a custom view) to display this information.
+- [x] Design the Admin Dashboard layout.
+- [x] Implement data retrieval for "Top contributors".
+- [x] Implement data retrieval for "Points trends (monthly)".
+- [x] Implement data retrieval for "Total earned vs spent".
+- [x] Implement data retrieval for "Most active categories".
+- [x] Create the view (e.g., using Odoo's dashboard or a custom view) to display this information.
 
 #### Madrich Portal Summary
 - [ ] Design the Madrich Portal Summary layout.
