@@ -141,22 +141,22 @@ haluc_points/
 ### 🧙 3. Mass Point Addition Wizard
 
 #### Transient Model: `haluc.point.mass.wizard`
-- [ ] Define the `haluc.point.mass.wizard` transient model with all specified fields:
-  - [ ] `partner_ids` (Many2many to `res.partner`)
-  - [ ] `points` (Integer)
-  - [ ] `category` (Char)
-  - [ ] `notes` (Text)
-  - [ ] `date` (Date, default today)
-  - [ ] `notify` (Boolean)
-  - [ ] `state` (Selection: `draft`, `confirmed`)
-- [ ] Create the form view for the wizard.
+- [x] Define the `haluc.point.mass.wizard` transient model with all specified fields:
+  - [x] `partner_ids` (Many2many to `res.partner`)
+  - [x] `points` (Integer)
+  - [x] `category` (Char)
+  - [x] `notes` (Text)
+  - [x] `date` (Date, default today)
+  - [x] `notify` (Boolean)
+  - [x] `state` (Selection: `draft`, `confirmed`)
+- [x] Create the form view for the wizard.
 
 #### Wizard Behavior
-- [ ] Implement the wizard action/method to:
-  - [ ] Loop through selected `partner_ids`.
-  - [ ] Create a new `haluc.point.transaction` for each partner using the wizard's field values.
-  - [ ] If `notify` is checked, trigger the email alert for each created transaction (reuse email alert functionality).
-- [ ] Add an action menu item to open the wizard (e.g., from the `res.partner` tree view or a dedicated menu).
+- [x] Implement the wizard action/method to:
+  - [x] Loop through selected `partner_ids`.
+  - [x] Create a new `haluc.point.transaction` for each partner using the wizard's field values.
+  - [x] If `notify` is checked, trigger the email alert for each created transaction (reuse email alert functionality).
+- [x] Add an action menu item to open the wizard (e.g., from the `res.partner` tree view or a dedicated menu).
 
 ## ✅ Summary of Benefits
 
