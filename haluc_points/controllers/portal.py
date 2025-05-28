@@ -13,6 +13,9 @@ class HalucPointsCustomerPortal(CustomerPortal):
                 ('state', '=', 'confirmed')
             ])
             values['haluc_point_balance'] = partner.haluc_point_balance
+            values['haluc_motivational_status'] = partner.haluc_motivational_status # Added motivational status
+            # For the home page, we might not need last_5_transactions, but it could be added if desired.
+            # For now, focusing on the dedicated points page for last 5 transactions.
         return values
 
     @http.route(['/my/haluc_points', '/my/haluc_points/page/<int:page>'], type='http', auth="user", website=True)
@@ -62,5 +65,7 @@ class HalucPointsCustomerPortal(CustomerPortal):
             'searchbar_sortings': searchbar_sortings,
             'sortby': sortby,
             'haluc_point_balance': partner.haluc_point_balance, # Get balance from partner
+            'haluc_motivational_status': partner.haluc_motivational_status, # Added motivational status
+            'last_5_transactions': partner.get_last_n_transactions(5), # Added last 5 transactions
         })
         return request.render("haluc_points.portal_my_haluc_points_list", values)
